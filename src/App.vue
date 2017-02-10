@@ -1,16 +1,15 @@
 <template lang="pug">
   div#app
-    img(src="./assets/logo.png")
-    hello
+    request-form
 </template>
 
 <script>
-import Hello from './components/Hello'
+import RequestForm from './components/request-form'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    RequestForm
   }
 }
 </script>
@@ -22,6 +21,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
