@@ -1,15 +1,18 @@
 <template lang="pug">
   div#app
     request-form
+    repo-list
 </template>
 
 <script>
 import RequestForm from './components/request-form'
+import RepoList from './components/repo-list'
 
 export default {
   name: 'app',
   components: {
-    RequestForm
+    RequestForm,
+    RepoList
   }
 }
 </script>
