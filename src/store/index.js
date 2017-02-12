@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import * as types from './mutation-types'
-import * as actions from './actions'
+import mutations from './mutations'
+import actions from './actions'
 
 Vue.use(Vuex)
 
@@ -13,21 +13,7 @@ export default new Vuex.Store({
     repos: [],
     message: ''
   },
-  mutations: {
-    [types.RESET_USER] (state, payload) {
-      state.username = payload.username
-      state.repos = []
-      if (payload.message) {
-        state.message = payload.message
-      }
-    },
-    [types.SET_LIST] (state, list) {
-      state.repos = list
-    },
-    [types.SET_MESSAGE] (state, text) {
-      state.message = text
-    }
-  },
+  mutations,
   actions,
   strict: isDebug
   // plugins: debug ? [createLogger()] : []

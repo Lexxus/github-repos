@@ -1,13 +1,14 @@
 import * as types from './mutation-types'
 import githubSvc from '../services/github'
-import messages from './messages'
+import messages from '../messages'
 
-export const getRepos = ({ commit }, username) => {
-  commit(types.RESET_USER, {
-    username,
-    message: messages.get('loading')
-  })
-  githubSvc.getUserRepos(username)
+export default {
+  getRepos ({ commit }, username) {
+    commit(types.RESET_USER, {
+      username,
+      message: messages.get('loading')
+    })
+    githubSvc.getUserRepos(username)
     .then(data => {
       let message = ''
 
@@ -32,4 +33,5 @@ export const getRepos = ({ commit }, username) => {
       }
       commit(types.SET_MESSAGE, message || messages.get('error'))
     })
+  }
 }
