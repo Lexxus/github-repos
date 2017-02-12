@@ -1,4 +1,5 @@
 export default {
   githubApiUrl: 'https://api.github.com/',
-  usersUri: 'users/'
+  usersUri: 'users/',
+  locale: 'en_us'
 }

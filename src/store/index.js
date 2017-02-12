@@ -10,14 +10,22 @@ const isDebug = process.env.NODE_ENV !== 'production'
 export default new Vuex.Store({
   state: {
     username: '',
-    repos: []
+    repos: [],
+    message: ''
   },
   mutations: {
-    [types.SET_USERNAME] (state, username) {
-      state.username = username
+    [types.RESET_USER] (state, payload) {
+      state.username = payload.username
+      state.repos = []
+      if (payload.message) {
+        state.message = payload.message
+      }
     },
     [types.SET_LIST] (state, list) {
       state.repos = list
+    },
+    [types.SET_MESSAGE] (state, text) {
+      state.message = text
     }
   },
   actions,

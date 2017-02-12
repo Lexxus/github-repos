@@ -5,6 +5,9 @@ export default {
     },
     list () {
       return this.$store.state.repos
+    },
+    message () {
+      return this.$store.state.message
     }
   }
 }

@@ -1,8 +1,12 @@
 div.repo-list
-  h3(v-if="username") GitHub repositories of {{ username }}
+  h3.title(v-if="username") GitHub repositories of
+    strong  {{ username }}
 
-  ul(v-if="list.length")
+  ul.list(v-if="list.length")
     li(v-for="repo in list")
       a(:href="repo.html_url") {{ repo.name }}
-  div(v-else)
-    p(v-if="username") No repositories.
+      span(v-if="repo.homepage")  (
+        a(:href="repo.homepage") homepage
+        | )
+      span(v-if="repo.language")  - {{ repo.language }}
+  p.message(v-else-if="message") {{ message }}
