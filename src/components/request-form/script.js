@@ -20,7 +20,7 @@ export default {
   methods: {
     onSubmit (event) {
       this.disabled = true
-      this.$store.dispatch('getRepos', event.target.elements.username.value)
+      this.$store.dispatch('fetchRepos', event.target.elements.username.value)
     },
     onKeyup (event) {
       this.disabled = !validation(event.target.value)

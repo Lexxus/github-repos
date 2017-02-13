@@ -3,7 +3,13 @@ import githubSvc from '../services/github'
 import messages from '../messages'
 
 export default {
-  getRepos ({ commit }, username) {
+  /**
+   * Fetch repositories of the user to the state 'repos'.
+   *
+   * @param {Object} - the Store instance.
+   * @param {string} username.
+   */
+  fetchRepos ({ commit }, username) {
     commit(types.RESET_USER, {
       username,
       message: messages.get('loading')

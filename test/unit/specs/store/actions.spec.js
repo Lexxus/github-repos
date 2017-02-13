@@ -3,12 +3,12 @@ import githubSvc from 'src/services/github'
 import actions from 'src/store/actions'
 
 describe('Store actions', () => {
-  it('should has method "getRepos"', () => {
-    expect(actions).to.have.ownProperty('getRepos')
-    expect(actions.getRepos).to.be.a('function')
+  it('should has method "fetchRepos"', () => {
+    expect(actions).to.have.ownProperty('fetchRepos')
+    expect(actions.fetchRepos).to.be.a('function')
   })
 
-  describe('getRepos', () => {
+  describe('fetchRepos', () => {
     const sandbox = sinon.sandbox.create()
     let getUserReposStub, commit
 
@@ -28,13 +28,13 @@ describe('Store actions', () => {
     })
 
     it('should commit RESET_USER mutaion', () => {
-      actions.getRepos({ commit }, 'me')
+      actions.fetchRepos({ commit }, 'me')
 
       expect(commit).to.have.been.calledWithMatch(types.RESET_USER, { username: 'me' })
     })
 
     it('should call githubSvc.getUserRepos', () => {
-      actions.getRepos({ commit }, 'me')
+      actions.fetchRepos({ commit }, 'me')
 
       expect(getUserReposStub).to.have.been.calledWith('me')
     })
