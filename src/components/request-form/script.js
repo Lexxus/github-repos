@@ -1,3 +1,15 @@
+import configs from '../../configs'
+
+/**
+ * Validate text to matching by the rule in the configs.
+ *
+ * @param {string} text - text to validate.
+ * @returns {boolean} true if text is valid.
+ */
+function validation (text) {
+  return configs.usernameRule.test(text)
+}
+
 export default {
   name: 'requestForm',
   data () {
@@ -11,7 +23,7 @@ export default {
       this.$store.dispatch('getRepos', event.target.elements.username.value)
     },
     onKeyup (event) {
-      this.disabled = !event.target.value
+      this.disabled = !validation(event.target.value)
     }
   }
 }
